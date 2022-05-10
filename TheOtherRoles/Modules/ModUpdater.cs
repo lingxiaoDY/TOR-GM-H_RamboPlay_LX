@@ -12,9 +12,46 @@ using Twitch;
 
 namespace TheOtherRoles.Modules
 {
+
+#if DEBUG
+    [HarmonyPatch(typeof(SignInGuestOfflineChoice), nameof(SignInGuestOfflineChoice.Open))]
+    public class SignInGuestOfflineChoiceOpenPatch
+    {
+        public static bool Prefix(SignInGuestOfflineChoice __instance)
+        {
+            __instance.gameObject.SetActive(true);
+            __instance.continueOfflineButton.OnClick.Invoke();
+            return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(EOSManager), nameof(EOSManager.ShowTimeout))]
+    public class EOSManagerShowTimeoutPatch
+    {
+        public static bool Prefix(EOSManager __instance)
+        {
+            __instance.TimeOutPopup.SetActive(true);
+            var buttons = __instance.TimeOutPopup.GetComponentsInChildren<PassiveButton>();
+            foreach(var button in buttons)
+            {
+                if(button.name == "OfflineButton")
+                {
+                    button.OnClick.Invoke();
+                }
+            }
+            return true;
+        }
+
+    }
+# endif
+
     [HarmonyPatch(typeof(MainMenuManager), nameof(MainMenuManager.Start))]
     public class ModUpdaterButton {
         private static void Prefix(MainMenuManager __instance) {
+#if DEBUG
+            DestroyableSingleton<EOSManager>.Instance.TimeOutTime = 0f;
+            return;
+#endif
             AssetLoader.LoadAssets();
             CustomHatLoader.LaunchHatFetcher();
             var template = GameObject.Find("ExitGameButton");

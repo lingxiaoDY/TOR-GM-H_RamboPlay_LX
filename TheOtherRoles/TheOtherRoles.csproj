@@ -52,6 +52,11 @@
         <Copy SourceFiles="$(ProjectDir)\bin\$(Configuration)\netstandard2.1\$(AssemblyName).dll" DestinationFolder="$(AmongUs)/BepInEx/plugins/" />
     </Target>
 
+    <Target Name="CopyCustomContent" AfterTargets="AfterBuild" Condition="'$(Configuration)|$(Platform)'=='DEBUG|AnyCPU'">
+        <Message Text="Second occurrence" />
+        <Copy SourceFiles="$(ProjectDir)\bin\$(Configuration)\netstandard2.1\$(AssemblyName).dll" DestinationFolder="$(AmongUs)/BepInEx/plugins/" />
+    </Target>
+
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
         <Exec Command="py &quot;$(SolutionDir)stringsToJson.py&quot;" />
     </Target>

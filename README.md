@@ -1,5 +1,5 @@
 <p align="center">This mod is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC. © Innersloth LLC.</p>
-![Banner](./Images/Banner.png)
+![Banner](/Images/Banner.png)
 
 # 说明
 这个模组是从 TOR GM 版的衍生出来的版本，附加了一些新职业和地图改动，原作者见 Fork。

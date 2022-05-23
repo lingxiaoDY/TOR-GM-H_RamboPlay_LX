@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
-      - run: /usr/bin/python3 -m pip install openpyxl
+      - run: pip install openpyxl
 
       - name: Build
         run: bash ./build.sh

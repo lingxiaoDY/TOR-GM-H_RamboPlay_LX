@@ -27,14 +27,14 @@ namespace TheOtherRoles.Modules
 
             var textDiscord = buttonDiscord.transform.GetChild(0).GetComponent<TMPro.TMP_Text>();
             __instance.StartCoroutine(Effects.Lerp(0.1f, new System.Action<float>((p) => {
-                textDiscord.SetText("Discord");
+                textDiscord.SetText("兰博玩");
             })));
 
             PassiveButton passiveButtonDiscord = buttonDiscord.GetComponent<PassiveButton>();
             SpriteRenderer buttonSpriteDiscord = buttonDiscord.GetComponent<SpriteRenderer>();
 
             passiveButtonDiscord.OnClick = new Button.ButtonClickedEvent();
-            passiveButtonDiscord.OnClick.AddListener((System.Action)(() => Application.OpenURL("https://discord.gg/sTt8EzEpHP")));
+            passiveButtonDiscord.OnClick.AddListener((System.Action)(() => Application.OpenURL("https://ramboplay.com")));
 
             Color discordColor = new Color32(88, 101, 242, byte.MaxValue);
             buttonSpriteDiscord.color = textDiscord.color = discordColor;
@@ -48,25 +48,26 @@ namespace TheOtherRoles.Modules
 
             var textTwitter = buttonTwitter.transform.GetChild(0).GetComponent<TMPro.TMP_Text>();
             __instance.StartCoroutine(Effects.Lerp(0.1f, new System.Action<float>((p) => {
-                textTwitter.SetText("Twitter");
+                textTwitter.SetText("Github");
             })));
 
             PassiveButton passiveButtonTwitter = buttonTwitter.GetComponent<PassiveButton>();
             SpriteRenderer buttonSpriteTwitter = buttonTwitter.GetComponent<SpriteRenderer>();
 
             passiveButtonTwitter.OnClick = new Button.ButtonClickedEvent();
-            passiveButtonTwitter.OnClick.AddListener((System.Action)(() => Application.OpenURL("https://twitter.com/haoming_dev")));
+            passiveButtonTwitter.OnClick.AddListener((System.Action)(() => Application.OpenURL("https://github.com/RamboPlayCom")));
 
-            Color twitterColor = new Color32(29, 161, 242, byte.MaxValue);
+            Color twitterColor = new Color32(36, 41, 47, byte.MaxValue);
             buttonSpriteTwitter.color = textTwitter.color = twitterColor;
             passiveButtonTwitter.OnMouseOut.AddListener((System.Action)delegate {
                 buttonSpriteTwitter.color = textTwitter.color = twitterColor;
             });
 
             // アップデートボタン
-            ModUpdater.LaunchUpdater();
-            if (!ModUpdater.hasUpdate) return;
-            if (template == null) return;
+            // 干掉自动更新
+            // ModUpdater.LaunchUpdater();
+            // if (!ModUpdater.hasUpdate) return;
+            // if (template == null) return;
 
             var button = UnityEngine.Object.Instantiate(template, null);
             button.transform.localPosition = new Vector3(button.transform.localPosition.x, button.transform.localPosition.y + 0.6f, button.transform.localPosition.z);
@@ -90,7 +91,8 @@ namespace TheOtherRoles.Modules
             buttonTwitter.transform.localPosition = new Vector3(buttonTwitter.transform.localPosition.x, buttonTwitter.transform.localPosition.y + 0.6f, buttonTwitter.transform.localPosition.z);
 
             void onClick() {
-                ModUpdater.ExecuteUpdate();
+                // 干掉自动更新
+                //ModUpdater.ExecuteUpdate();
                 button.SetActive(false);
             }
         }
@@ -168,7 +170,7 @@ namespace TheOtherRoles.Modules
                 }
 
                 string changeLog = data["body"]?.ToString();
-                if (changeLog != null) announcement = changeLog;
+                if (changeLog != null) announcement = "更新请关注 GitHub"; // 干掉更新公告
                 // check version
                 System.Version ver = System.Version.Parse(tagname.Replace("v", ""));
                 int diff = TheOtherRolesPlugin.Version.CompareTo(ver);

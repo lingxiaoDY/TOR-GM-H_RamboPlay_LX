@@ -10,7 +10,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
-using TheOtherRoles.Utilities;
+// using TheOtherRoles.Utilities;
 using Newtonsoft.Json.Linq;
 
 namespace TheOtherRoles.Modules

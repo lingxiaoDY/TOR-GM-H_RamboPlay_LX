@@ -53,6 +53,6 @@
     </Target>
 
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-        <Exec Command="py &quot;$(SolutionDir)stringsToJson.py&quot;" />
+        <Exec Command="$(PythonBin) &quot;$(SolutionDir)stringsToJson.py&quot;" />
     </Target>
 </Project>

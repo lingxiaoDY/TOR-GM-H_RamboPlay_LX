@@ -18,8 +18,6 @@ namespace TheOtherRoles.Modules
 
     [HarmonyPatch]
     public class CustomHats { 
-        private static bool LOADED = false;
-        private static bool RUNNING = false;
         public static Material hatShader;
 
         public static Dictionary<string, HatExtension> CustomHatRegistry = new Dictionary<string, HatExtension>();
@@ -124,8 +122,8 @@ namespace TheOtherRoles.Modules
             if (hatShader == null && DestroyableSingleton<HatManager>.InstanceExists)
                 hatShader = new Material(Shader.Find("Unlit/PlayerShader"));
 
-            HatData hat = new ScriptableObject.CreateInstance<HatData>();
-            hat.hatViewData.viewData = new ScriptableObject.CreateInstance<HatViewData>();
+            HatData hat = new HatData();
+            hat.hatViewData.viewData = new HatViewData();
             hat.hatViewData.viewData.MainImage = CreateHatSprite(ch.resource, fromDisk);
             if (ch.backresource != null) {
                 hat.hatViewData.viewData.BackImage = CreateHatSprite(ch.backresource, fromDisk);

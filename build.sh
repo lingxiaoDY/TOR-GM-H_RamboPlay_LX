@@ -3,7 +3,7 @@ set -euo pipefail
 
 mkdir -p output
 
-ln -s /usr/bin/python3 /usr/bin/py
+alias py=/usr/bin/python3
 
 # The normal build
 dotnet build -c Release \

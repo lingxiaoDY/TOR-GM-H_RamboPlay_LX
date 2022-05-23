@@ -90,11 +90,11 @@ namespace TheOtherRoles.Modules
             buttonDiscord.transform.localPosition = new Vector3(buttonDiscord.transform.localPosition.x, buttonDiscord.transform.localPosition.y + 0.6f, buttonDiscord.transform.localPosition.z);
             buttonTwitter.transform.localPosition = new Vector3(buttonTwitter.transform.localPosition.x, buttonTwitter.transform.localPosition.y + 0.6f, buttonTwitter.transform.localPosition.z);
 
-            void onClick() {
-                // 干掉自动更新
-                //ModUpdater.ExecuteUpdate();
-                button.SetActive(false);
-            }
+            // void onClick() {
+            //     // 干掉自动更新
+            //     //ModUpdater.ExecuteUpdate();
+            //     button.SetActive(false);
+            // }
         }
     }
 

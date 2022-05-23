@@ -7,7 +7,7 @@ namespace TheOtherRoles.Patches {
         public static class RandomizeNamePatch {
             static bool Prefix(AccountManager __instance) {  
                 if (SaveManager.lastPlayerName == null)
-                    return true;
+                    return true; // Rambo玩
                 SaveManager.PlayerName = SaveManager.lastPlayerName;
 		        __instance.accountTab.UpdateNameDisplay();
                 return false; // Don't execute original

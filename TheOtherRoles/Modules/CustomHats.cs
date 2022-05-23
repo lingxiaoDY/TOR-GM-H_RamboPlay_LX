@@ -414,7 +414,7 @@ namespace TheOtherRoles.Modules
     public class CustomHatLoader {
         public static bool running = false;
 
-        public static List<CustomHatOnline> hatdetails = new List<CustomHatOnline>();
+        public static List<CustomHatOnline> hatDetails = new List<CustomHatOnline>();
         public static void LaunchHatFetcher() {
             if (running)
                 return;
@@ -509,7 +509,7 @@ namespace TheOtherRoles.Modules
                         hatdatas.RemoveAt(i);
                     }
                 }
-                hatdetails = hatdatas;
+                hatDetails = hatdatas;
             } catch (System.Exception ex) {
                 TheOtherRolesPlugin.Instance.Log.LogError(ex.ToString());
                 System.Console.WriteLine(ex);

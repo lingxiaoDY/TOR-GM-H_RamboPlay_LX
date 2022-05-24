@@ -2,7 +2,7 @@
 
 ![](Images/Banner.png)  
 
-[![CI](https://github.com/RamboPlayCom/TOR-GM-H_RamboPlay/actions/workflows/main.yml/badge.svg)](https://github.com/RamboPlayCom/TOR-GM-H_RamboPlay/actions/workflows/main.yml)
+[![CI](https://github.com/RamboPlayCom/TOR-GM-H_RamboPlay/actions/workflows/main.yml/badge.svg)](https://github.com/RamboPlayCom/TOR-GM-H_RamboPlay/actions/workflows/main.yml)![](https://img.shields.io/bstats/players/1?style=plastic)
 
 # 说明
 这个模组是从 TOR GM 版的衍生出来的版本，附加了一些新职业和地图改动，原作者见 Fork。

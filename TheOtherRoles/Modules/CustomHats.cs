@@ -58,7 +58,7 @@ namespace TheOtherRoles.Modules
 
             for (int i = 0; i < hats.Length; i++)
             {
-                string s = fromDisk ? hats[i].Substring(hats[i].LastIndexOf("\\") + 1).Split('.')[0] : hats[i].Split('.')[3];
+                string s = fromDisk ? hats[i][(hats[i].LastIndexOf("\\") + 1)..].Split('.')[0] : hats[i].Split('.')[3];
                 string[] p = s.Split('_');
 
                 HashSet<string> options = new();
@@ -90,11 +90,10 @@ namespace TheOtherRoles.Modules
             foreach (string k in fronts.Keys)
             {
                 CustomHat hat = fronts[k];
-                string br, cr, fr, bfr;
-                backs.TryGetValue(k, out br);
-                climbs.TryGetValue(k, out cr);
-                flips.TryGetValue(k, out fr);
-                backflips.TryGetValue(k, out bfr);
+                backs.TryGetValue(k, out string br);
+                climbs.TryGetValue(k, out string cr);
+                flips.TryGetValue(k, out string fr);
+                backflips.TryGetValue(k, out string bfr);
                 if (br != null)
                     hat.backresource = br;
                 if (cr != null)
@@ -157,9 +156,9 @@ namespace TheOtherRoles.Modules
 
             HatExtension extend = new()
             {
-                author = ch.author != null ? ch.author : "Unknown",
-                package = ch.package != null ? ch.package : "Misc.",
-                condition = ch.condition != null ? ch.condition : "none"
+                author = ch.author ?? "Unknown",
+                package = ch.package ?? "Misc.",
+                condition = ch.condition ?? "none"
             };
 
             if (ch.flipresource != null)
@@ -588,12 +587,11 @@ namespace TheOtherRoles.Modules
     {
         public static CustomHats.HatExtension getHatExtension(this HatData hat)
         {
-            CustomHats.HatExtension ret = null;
             if (CustomHats.TestExt != null && CustomHats.TestExt.condition.Equals(hat.name))
             {
                 return CustomHats.TestExt;
             }
-            CustomHats.CustomHatRegistry.TryGetValue(hat.name, out ret);
+            CustomHats.CustomHatRegistry.TryGetValue(hat.name, out CustomHats.HatExtension ret);
             return ret;
         }
     }

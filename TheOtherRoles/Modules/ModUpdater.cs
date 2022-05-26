@@ -178,7 +178,7 @@ namespace TheOtherRoles.Modules
             {
                 HttpClient http = new();
                 http.DefaultRequestHeaders.Add("User-Agent", "TheOtherRoles Updater");
-                var response = await http.GetAsync(new System.Uri("https://api.github.com/repos/haoming37/TheOtherRoles-GM-Haoming/releases/latest"), HttpCompletionOption.ResponseContentRead);
+                var response = await http.GetAsync(new System.Uri("https://www.baidu.com"), HttpCompletionOption.ResponseContentRead); // 不访问github
                 if (response.StatusCode != HttpStatusCode.OK || response.Content == null)
                 {
                     System.Console.WriteLine("Server returned no data: " + response.StatusCode.ToString());

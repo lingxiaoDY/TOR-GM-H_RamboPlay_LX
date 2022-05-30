@@ -42,7 +42,7 @@ namespace TheOtherRoles.Patches
                 __instance.text.alignment = TMPro.TextAlignmentOptions.TopRight;
                 if (AmongUsClient.Instance.GameState == InnerNet.InnerNetClient.GameStates.Started)
                 {
-                    __instance.text.text = $"{baseCredentials}\n{__instance.text.text}";
+                    __instance.text.text = $"{baseCredentials}\n 延迟：{AmongUsClient.Instance.Ping}毫秒\n";
                     if (PlayerControl.LocalPlayer.Data.IsDead || (!(PlayerControl.LocalPlayer == null) && PlayerControl.LocalPlayer.isLovers()))
                     {
                         // __instance.transform.localPosition = new Vector3(3.45f, __instance.transform.localPosition.y, __instance.transform.localPosition.z);
@@ -56,7 +56,7 @@ namespace TheOtherRoles.Patches
                 }
                 else
                 {
-                    __instance.text.text = $"{baseCredentials}\n{ModTranslation.getString("creditsFull")}\n{__instance.text.text}";
+                    __instance.text.text = $"{baseCredentials}\n{ModTranslation.getString("creditsFull")}\n 延迟：{AmongUsClient.Instance.Ping}毫秒\n";
                     // __instance.transform.localPosition = new Vector3(3.5f, __instance.transform.localPosition.y, __instance.transform.localPosition.z);
                     __instance.gameObject.GetComponent<AspectPosition>().DistanceFromEdge = new Vector3(2.7f, 0.0f, 0f);
                 }

@@ -8,7 +8,7 @@ namespace TheOtherRoles.Patches
     {
         public static void Postfix(GameStartManager __instance)
         {
-            Chat.SendPrivateChat($"房间代码 {InnerNet.GameCode.IntToGameName(AmongUsClient.Instance.GameId)} 已复制");
+            __instance.AddChat(PlayerControl.LocalPlayer, $"房间代码 {InnerNet.GameCode.IntToGameName(AmongUsClient.Instance.GameId)} 已复制");
             GUIUtility.systemCopyBuffer = InnerNet.GameCode.IntToGameName(AmongUsClient.Instance.GameId);
         }
     }

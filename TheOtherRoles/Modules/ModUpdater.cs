@@ -23,7 +23,7 @@ namespace TheOtherRoles.Modules
             CustomHatLoader.LaunchHatFetcher();
             var template = GameObject.Find("ExitGameButton");
 
-            // Discrodボタン
+            // 兰博玩
             var buttonDiscord = UnityEngine.Object.Instantiate(template, null);
             buttonDiscord.transform.localPosition = new Vector3(buttonDiscord.transform.localPosition.x, buttonDiscord.transform.localPosition.y + 0.6f, buttonDiscord.transform.localPosition.z);
 
@@ -45,26 +45,48 @@ namespace TheOtherRoles.Modules
                 buttonSpriteDiscord.color = textDiscord.color = discordColor;
             });
 
-            // Twitterボタン
+            // 汉化组
             var buttonTwitter = UnityEngine.Object.Instantiate(template, null);
             buttonTwitter.transform.localPosition = new Vector3(buttonTwitter.transform.localPosition.x, buttonTwitter.transform.localPosition.y + 1.2f, buttonTwitter.transform.localPosition.z);
 
             var textTwitter = buttonTwitter.transform.GetChild(0).GetComponent<TMPro.TMP_Text>();
             __instance.StartCoroutine(Effects.Lerp(0.1f, new System.Action<float>((p) => {
-                textTwitter.SetText("Github");
+                textTwitter.SetText("四个憨批\n汉化组");
             })));
 
             PassiveButton passiveButtonTwitter = buttonTwitter.GetComponent<PassiveButton>();
             SpriteRenderer buttonSpriteTwitter = buttonTwitter.GetComponent<SpriteRenderer>();
 
             passiveButtonTwitter.OnClick = new Button.ButtonClickedEvent();
-            passiveButtonTwitter.OnClick.AddListener((System.Action)(() => Application.OpenURL("https://github.com/RamboPlayCom")));
+            passiveButtonTwitter.OnClick.AddListener((System.Action)(() => Application.OpenURL("https://amonguscn.club")));
 
-            Color twitterColor = new Color32(36, 41, 47, byte.MaxValue);
+            Color twitterColor = new Color32(255, 0, 0, byte.MaxValue);
             buttonSpriteTwitter.color = textTwitter.color = twitterColor;
             passiveButtonTwitter.OnMouseOut.AddListener((System.Action)delegate
             {
                 buttonSpriteTwitter.color = textTwitter.color = twitterColor;
+            });
+
+            // 汉化组QQ群
+            var buttonQQ群 = UnityEngine.Object.Instantiate(template, null);
+            buttonQQ群.transform.localPosition = new Vector3(buttonQQ群.transform.localPosition.x, buttonQQ群.transform.localPosition.y + 0.6f, buttonQQ群.transform.localPosition.z);
+
+            var textQQ群 = buttonQQ群.transform.GetChild(0).GetComponent<TMPro.TMP_Text>();
+            __instance.StartCoroutine(Effects.Lerp(0.1f, new System.Action<float>((p) => {
+                textQQ群.SetText("汉化组QQ群");
+            })));
+
+            PassiveButton passiveButtonQQ群 = buttonQQ群.GetComponent<PassiveButton>();
+            SpriteRenderer buttonSpriteQQ群 = buttonQQ群.GetComponent<SpriteRenderer>();
+
+            passiveButtonQQ群.OnClick = new Button.ButtonClickedEvent();
+            passiveButtonQQ群.OnClick.AddListener((System.Action)(() => Application.OpenURL("https://jq.qq.com/?_wv=1027&k=3wPXhLE1")));
+
+            Color QQ群Color = new Color32(255, 255, 0, byte.MaxValue);
+            buttonSpriteQQ群.color = textQQ群.color = QQ群Color;
+            passiveButtonQQ群.OnMouseOut.AddListener((System.Action)delegate
+            {
+                buttonSpriteQQ群.color = textQQ群.color = QQ群Color;
             });
 
             // アップデートボタン
